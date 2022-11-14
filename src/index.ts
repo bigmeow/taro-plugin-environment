@@ -18,7 +18,7 @@ export default function (ctx: IPluginContext, pluginOpts: EnvPluginOpts) {
 
   const mode = ciArgs.mode || process.env.NODE_ENV
 
-  printLog(processTypeEnum.START, '读取env环境变量', mode)
+  printLog(processTypeEnum.START, 'taro-plugin-environment：读取env环境变量', mode)
   if (mode) {
     loadEnv(mode)
   }
@@ -27,6 +27,7 @@ export default function (ctx: IPluginContext, pluginOpts: EnvPluginOpts) {
   ctx.modifyWebpackChain(({ chain }) => {
     const env = resolveClientEnv()
     chain.plugin('definePlugin').tap((args) => {
+      printLog(processTypeEnum.REMIND, 'taro-plugin-environment：注入env环境变量', env)
       Object.assign(args[0], env)
       return args
     })
@@ -44,7 +45,7 @@ export default function (ctx: IPluginContext, pluginOpts: EnvPluginOpts) {
       try {
         if (fs.pathExistsSync(envPath)) {
           const env = dotenv.config({ path: envPath, debug: Boolean(process.env.DEBUG) })
-          dotenvExpand(env)
+          dotenvExpand.expand(env)
           logger(envPath, env)
         }
       } catch (err) {

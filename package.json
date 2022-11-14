@@ -1,6 +1,6 @@
 {
   "name": "taro-plugin-environment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "taro 批量设置环境变量插件，适用于项目中多环境切换环境变量配置",
   "keywords": [
     "Taro",
@@ -28,11 +28,12 @@
     "url": "https://github.com/bigmeow/taro-plugin-environment/issues"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "dotenv-expand": "^5.1.0"
+    "dotenv": "^16.0.3",
+    "dotenv-expand": "^9.0.0",
+    "minimist": "^1.2.7"
   },
   "devDependencies": {
-    "@tarojs/service": "^3.3.8",
+    "@tarojs/service": "^3.5.7",
     "@types/node": "^16.9.1"
   }
 }
