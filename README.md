@@ -2,6 +2,8 @@
 
 > taro 设置环境变量插件，适用于项目中多环境切换时批量设置环境变量配置
 
+## 注意 taro 3.5.10 开始，taro 已经内置了此功能，且读取的环境变量可以直接在 config/index.js 中使用
+
 ## 使用
 ```bash
 npm i taro-plugin-environment  -D
